@@ -274,7 +274,11 @@ $endif$
 %
 $if(disable-header-and-footer)$
 $else$
+$if(hide-header-footer-separators)$
+\usepackage{scrlayer-scrpage}
+$else$
 \usepackage[headsepline,footsepline]{scrlayer-scrpage}
+$endif$
 
 \newpairofpagestyles{eisvogel-header-footer}{
   \clearpairofpagestyles
@@ -284,7 +288,12 @@ $else$
   \ifoot*{$if(footer-left)$$footer-left$$else$$for(author)$$author$$sep$, $endfor$$endif$}
   \cfoot*{$if(footer-center)$$footer-center$$else$$endif$}
   \ofoot*{$if(footer-right)$$footer-right$$else$\thepage$endif$}
-  \addtokomafont{pageheadfoot}{\upshape}
+  $if(header-footer-color)$
+  \definecolor{header-footer-color}{HTML}{$header-footer-color$}
+  \addtokomafont{pageheadfoot}{\color{header-footer-color}\upshape}
+  $else$
+  \addtokomafont{pageheadfoot}{\color{black}\upshape}
+  $endif$
 }
 \pagestyle{eisvogel-header-footer}
 
