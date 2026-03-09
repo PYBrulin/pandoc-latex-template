@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 distFolderName="dist"
 archiveFolderName="Eisvogel-${1}"

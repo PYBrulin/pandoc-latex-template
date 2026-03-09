@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
 
 REMOTE="${REMOTE:-https://mirror.ctan.org/systems/texlive/tlnet}"
