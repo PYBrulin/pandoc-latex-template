@@ -100,6 +100,41 @@ $if(numbersections)$
 $else$
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 $endif$
+
+%
+% Customizable section spacing
+%
+$if(section-beforeskip)$
+\RedeclareSectionCommand[
+  beforeskip=$section-beforeskip$\baselineskip,
+  afterskip=$if(section-afterskip)$$section-afterskip$\baselineskip$else$0.5\baselineskip$endif$
+]{section}
+$endif$
+$if(subsection-beforeskip)$
+\RedeclareSectionCommand[
+  beforeskip=$subsection-beforeskip$\baselineskip,
+  afterskip=$if(subsection-afterskip)$$subsection-afterskip$\baselineskip$else$0.5\baselineskip$endif$
+]{subsection}
+$endif$
+$if(subsubsection-beforeskip)$
+\RedeclareSectionCommand[
+  beforeskip=$subsubsection-beforeskip$\baselineskip,
+  afterskip=$if(subsubsection-afterskip)$$subsubsection-afterskip$\baselineskip$else$0.25\baselineskip$endif$
+]{subsubsection}
+$endif$
+$if(paragraph-beforeskip)$
+\RedeclareSectionCommand[
+  beforeskip=$paragraph-beforeskip$\baselineskip,
+  afterskip=$if(paragraph-afterskip)$$paragraph-afterskip$\baselineskip$else$0.25\baselineskip$endif$
+]{paragraph}
+$endif$
+$if(subparagraph-beforeskip)$
+\RedeclareSectionCommand[
+  beforeskip=$subparagraph-beforeskip$\baselineskip,
+  afterskip=$if(subparagraph-afterskip)$$subparagraph-afterskip$\baselineskip$else$0.25\baselineskip$endif$
+]{subparagraph}
+$endif$
+
 $fonts.latex()$
 $font-settings.latex()$
 $common.latex()$
