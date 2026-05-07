@@ -64,4 +64,22 @@ $endif$
 \end{titlepage}
 \restoregeometry
 \pagenumbering{arabic}
+$elseif(titlepage-minimal)$
+% If no title page is requested, at least include a basic document title on the
+% first page if `titlepage-minimal` is set to true.
+% \maketitle
+\begin{center}
+\setstretch{0.2}
+\noindent {\huge \textbf{\textsf{$title$}}}
+$if(subtitle)$
+\vskip 0.2em
+{\Large \textsf{$subtitle$}}
+$if(subject)$
+\vskip -0.2em
+\textsf{$subject$}
+$endif$
+$endif$
+\vskip -0.2em
+\noindent {\textsf{$for(author)$$author$$sep$, $endfor$} / \textsf{$date$}}
+\end{center}
 $endif$
