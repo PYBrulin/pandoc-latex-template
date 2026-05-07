@@ -63,8 +63,10 @@ $endif$
 \end{flushleft}
 \end{titlepage}
 \restoregeometry
+\setstretch{$if(linestretch)$$linestretch$$else$1$endif$}
 \pagenumbering{arabic}
 $elseif(titlepage-minimal)$
+{
 % If no title page is requested, at least include a basic document title on the
 % first page if `titlepage-minimal` is set to true.
 % \maketitle
@@ -82,4 +84,5 @@ $endif$
 \vskip -0.2em
 \noindent {\textsf{$for(author)$$author$$sep$, $endfor$} / \textsf{$date$}}
 \end{center}
+}
 $endif$
